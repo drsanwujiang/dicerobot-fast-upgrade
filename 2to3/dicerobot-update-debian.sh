@@ -20,6 +20,15 @@ if [[ $EUID -ne 0 ]]; then
   process_failed "请使用 sudo 权限运行此脚本"
 fi
 
+# Check directories
+if [ ! -d "dicerobot" ];then
+  process_failed "未检测到 DiceRobot 安装目录，无法更新"
+fi
+
+if [ ! -d "mirai" ];then
+  process_failed "未检测到 Mirai 安装目录，无法更新"
+fi
+
 # Input QQ account profile
 printf "\033[32m1. 输入 QQ 账号信息\033[0m\n"
 
@@ -53,8 +62,16 @@ printf "Done\n\n"
 printf "\033[32m2. 更新 Swoole\033[0m\n"
 printf "这一步可能需要数分钟时间，请耐心等待……\n"
 
-apt-get -y -qq install libcurl4-openssl-dev > /dev/null 2>&1
-printf "yes\nyes\nyes\nyes\nyes\nyes\n" | pecl upgrade https://dl.drsanwujiang.com/dicerobot/swoole.tgz > /dev/null 2>&1
+apt-get -y -qq install libcurl4-openssl-dev php7.4-curl > /dev/null 2>&1
+rm -f /etc/php/7.4/cli/conf.d/20-swoole.ini
+pecl uninstall swoole > /dev/null 2>&1
+printf "yes\nyes\nyes\nno\nyes\nyes\n" | pecl install https://dl.drsanwujiang.com/dicerobot/swoole.tgz > /dev/null 2>&1
+echo "extension=swoole.so" > /etc/php/7.4/mods-available/swoole.ini
+ln -s /etc/php/7.4/mods-available/swoole.ini /etc/php/7.4/cli/conf.d/20-swoole.ini
+
+if ! (php --ri swoole > /dev/null 2>&1); then
+  process_failed "Swoole 安装失败"
+fi
 
 printf "\nDone\n\n"
 
@@ -118,7 +135,10 @@ printf "\nDone\n\n"
 # Update DiceRobot
 printf "\033[32m4. 更新 DiceRobot\033[0m\n"
 
-composer --no-interaction --quiet create-project drsanwujiang/dicerobot-skeleton:3.0.0-alpha dicerobot --no-dev
+wget -q https://dl.drsanwujiang.com/dicerobot/dicerobot3-skeleton-update.zip
+unzip -qq dicerobot3-skeleton-update.zip -d dicerobot
+rm -f dicerobot3-skeleton-update.zip
+composer --no-interaction --quiet update --working-dir dicerobot --no-dev
 
 printf "\nDone\n\n"
 
