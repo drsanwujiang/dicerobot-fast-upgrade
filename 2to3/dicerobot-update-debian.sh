@@ -21,11 +21,11 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Check directories
-if [ ! -d "dicerobot" ];then
+if [ ! -d "dicerobot" ]; then
   process_failed "未检测到 DiceRobot 安装目录，无法更新"
 fi
 
-if [ ! -d "mirai" ];then
+if [ ! -d "mirai" ]; then
   process_failed "未检测到 Mirai 安装目录，无法更新"
 fi
 
