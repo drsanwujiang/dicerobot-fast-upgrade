@@ -67,6 +67,8 @@ rm -rf mirai/libs
 rm -rf mirai/logs
 rm -rf mirai/plugins
 unzip -qq dicerobot3-mirai.zip -d mirai
+rm -f dicerobot3-mirai.zip
+mv mirai/data/MiraiApiHttp mirai/data/net.mamoe.mirai-api-http
 cat > mirai/config/Console/AutoLogin.yml <<EOF
 accounts:
   -
@@ -110,7 +112,6 @@ heartbeat:
   extraBody: {}
   extraHeaders: {}
 EOF
-rm -f dicerobot3-mirai.zip
 
 printf "\nDone\n\n"
 
