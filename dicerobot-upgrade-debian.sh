@@ -12,7 +12,7 @@ function process_failed() {
 }
 
 printf "======================================================================================================\n"
-printf "\033[32m                                         DiceRobot 快速更新脚本\033[0m\n"
+printf "\033[32m                                         DiceRobot 快速升级脚本\033[0m\n"
 printf "======================================================================================================\n\n"
 
 # Check privilege
@@ -22,11 +22,11 @@ fi
 
 # Check directories
 if [ ! -d "dicerobot" ]; then
-  process_failed "未检测到 DiceRobot 安装目录，无法更新"
+  process_failed "未检测到 DiceRobot 安装目录，无法升级"
 fi
 
 if [ ! -d "mirai" ]; then
-  process_failed "未检测到 Mirai 安装目录，无法更新"
+  process_failed "未检测到 Mirai 安装目录，无法升级"
 fi
 
 # Check services
@@ -69,8 +69,8 @@ done
 
 printf "Done\n\n"
 
-# Update Swoole
-printf "\033[32m2. 更新 Swoole\033[0m\n"
+# Upgrade Swoole
+printf "\033[32m2. 升级 Swoole\033[0m\n"
 printf "这一步可能需要数分钟时间，请耐心等待……\n"
 
 apt-get -y -qq install libcurl4-openssl-dev php7.4-curl > /dev/null 2>&1
@@ -86,8 +86,8 @@ fi
 
 printf "\nDone\n\n"
 
-# Update Mirai
-printf "\033[32m3. 更新 Mirai\033[0m\n"
+# Upgrade Mirai
+printf "\033[32m3. 升级 Mirai\033[0m\n"
 
 wget -q https://dl.drsanwujiang.com/dicerobot/dicerobot3-mirai.zip
 rm -rf mirai/config
@@ -144,8 +144,8 @@ EOF
 
 printf "\nDone\n\n"
 
-# Update DiceRobot
-printf "\033[32m4. 更新 DiceRobot\033[0m\n"
+# Upgrade DiceRobot
+printf "\033[32m4. 升级 DiceRobot\033[0m\n"
 
 wget -q https://dl.drsanwujiang.com/dicerobot/dicerobot3-skeleton-update.zip
 unzip -qq dicerobot3-skeleton-update.zip -d dicerobot
@@ -156,4 +156,4 @@ printf "\nDone\n\n"
 
 # Normal termination
 printf "======================================================================================================\n\n"
-printf "DiceRobot 及其运行环境已经更新完毕，接下来请依照说明文档运行 DiceRobot 及 Mirai 即可\n"
+printf "DiceRobot 及其运行环境已经升级完毕，接下来请正常运行 DiceRobot 及 Mirai 即可\n"
