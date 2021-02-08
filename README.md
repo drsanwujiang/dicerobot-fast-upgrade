@@ -1,6 +1,6 @@
-# 快速更新 DiceRobot
+# 快速升级 DiceRobot
 
-快速更新 DiceRobot：从 2.x 到 3.0.0-alpha
+快速升级 DiceRobot：从 2.x 到 3.0.0-alpha
 
 
 ## 用法
@@ -11,22 +11,22 @@
     ### CentOS 系统（仅支持 CentOS 8）
 
     ```shell
-    wget https://cdn.jsdelivr.net/gh/drsanwujiang/dicerobot-fast-update@2to3/dicerobot-update-centos.sh
-    sudo bash dicerobot-update-centos.sh
+    wget https://cdn.jsdelivr.net/gh/drsanwujiang/dicerobot-fast-upgrade@2to3/dicerobot-upgrade-centos.sh
+    sudo bash dicerobot-upgrade-centos.sh
     ```
 
     ### Debian 系统
 
     ```shell
-    wget https://cdn.jsdelivr.net/gh/drsanwujiang/dicerobot-fast-update@2to3/dicerobot-update-debian.sh
-    sudo bash dicerobot-update-debian.sh
+    wget https://cdn.jsdelivr.net/gh/drsanwujiang/dicerobot-fast-upgrade@2to3/dicerobot-upgrade-debian.sh
+    sudo bash dicerobot-upgrade-debian.sh
     ```
 
     ### Ubuntu 系统
 
     ```shell
-    wget https://cdn.jsdelivr.net/gh/drsanwujiang/dicerobot-fast-update@2to3/dicerobot-update-ubuntu.sh
-    sudo bash dicerobot-update-ubuntu.sh
+    wget https://cdn.jsdelivr.net/gh/drsanwujiang/dicerobot-fast-upgrade@2to3/dicerobot-upgrade-ubuntu.sh
+    sudo bash dicerobot-upgrade-ubuntu.sh
     ```
 
 3. 运行 DiceRobot 及 Mirai。
