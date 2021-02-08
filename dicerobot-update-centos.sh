@@ -29,6 +29,17 @@ if [ ! -d "mirai" ]; then
   process_failed "未检测到 Mirai 安装目录，无法更新"
 fi
 
+# Check services
+if (systemctl --quiet is-active mirai); then
+  printf "\033[33m检测到 Mirai 运行中，正在停止……\033[0m\n\n"
+  systemctl stop mirai
+fi
+
+if (systemctl --quiet is-active dicerobot); then
+  printf "\033[33m检测到 DiceRobot 运行中，正在停止……\033[0m\n\n"
+  systemctl stop dicerobot
+fi
+
 # Input QQ account profile
 printf "\033[32m1. 输入 QQ 账号信息\033[0m\n"
 
