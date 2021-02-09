@@ -71,7 +71,7 @@ printf "Done\n\n"
 
 # Upgrade Swoole
 printf "\033[32m2. 升级 Swoole\033[0m\n"
-printf "这一步可能需要数分钟时间，请耐心等待……\n"
+printf "这一步可能需要 1~2 分钟时间，请耐心等待……\n"
 
 apt-get -y -qq install libcurl4-openssl-dev php7.4-curl > /dev/null 2>&1
 rm -f /etc/php/7.4/cli/conf.d/20-swoole.ini
@@ -90,7 +90,7 @@ rm -rf mirai/config
 rm -rf mirai/libs
 rm -rf mirai/logs
 rm -rf mirai/plugins
-unzip -qq dicerobot3-mirai.zip -d mirai
+unzip -qq -o dicerobot3-mirai.zip -d mirai
 rm -f dicerobot3-mirai.zip
 mv mirai/data/MiraiApiHttp mirai/data/net.mamoe.mirai-api-http
 cat > mirai/config/Console/AutoLogin.yml <<EOF
