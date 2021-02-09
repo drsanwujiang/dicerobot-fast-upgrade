@@ -95,6 +95,7 @@ rm -rf mirai/logs
 rm -rf mirai/plugins
 unzip -qq -o dicerobot3-mirai.zip -d mirai
 rm -f dicerobot3-mirai.zip
+rm -rf mirai/data/net.mamoe.mirai-api-http
 mv mirai/data/MiraiApiHttp mirai/data/net.mamoe.mirai-api-http
 cat > mirai/config/Console/AutoLogin.yml <<EOF
 accounts:
