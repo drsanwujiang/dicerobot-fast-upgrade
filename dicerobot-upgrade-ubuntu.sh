@@ -144,7 +144,7 @@ printf "\nDone\n\n"
 printf "\033[32m4. 升级 DiceRobot\033[0m\n"
 
 wget -q https://dl.drsanwujiang.com/dicerobot/dicerobot3-skeleton-update.zip
-unzip -qq dicerobot3-skeleton-update.zip -d dicerobot
+unzip -qq -o dicerobot3-skeleton-update.zip -d dicerobot
 rm -f dicerobot3-skeleton-update.zip
 composer --no-interaction --quiet update --working-dir dicerobot --no-dev
 
