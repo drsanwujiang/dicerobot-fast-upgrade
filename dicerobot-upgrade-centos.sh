@@ -108,38 +108,27 @@ accounts:
       protocol: ANDROID_PHONE
 EOF
 cat > mirai/config/net.mamoe.mirai-api-http/setting.yml <<EOF
-cors:
-  - '*'
-host: 0.0.0.0
-port: 8080
-authKey: 12345678
+adapters:
+  - http
+  - webhook
+
+enableVerify: false
+verifyKey: 12345678
+
+singleMode: true
+
 cacheSize: 4096
-enableWebsocket: false
 
-report:
-  enable: true
-  groupMessage:
-    report: true
-  friendMessage:
-    report: true
-  tempMessage:
-    report: true
-  eventMessage:
-    report: true
-  destinations: [
-    "http://127.0.0.1:9500/report"
-  ]
-  extraHeaders: {}
+adapterSettings:
+  http:
+    host: 127.0.0.1
+    port: 8080
+    cors:
+      - *
 
-heartbeat:
-  enable: true
-  delay: 1000
-  period: 300000
-  destinations: [
-    "http://127.0.0.1:9500/heartbeat"
-  ]
-  extraBody: {}
-  extraHeaders: {}
+  webhook:
+    destinations:
+      - "http://127.0.0.1:9500/report"
 EOF
 
 printf "\nDone\n\n"
