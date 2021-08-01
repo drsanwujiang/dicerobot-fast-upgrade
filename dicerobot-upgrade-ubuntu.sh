@@ -76,7 +76,7 @@ printf "这一步可能需要 1~2 分钟时间，请耐心等待……\n"
 apt-get -y -qq install libcurl4-openssl-dev php7.4-curl > /dev/null 2>&1
 rm -f /etc/php/7.4/cli/conf.d/20-swoole.ini
 pecl uninstall swoole > /dev/null 2>&1
-printf "yes\nyes\nyes\nno\nyes\nyes\n" | pecl install https://dl.drsanwujiang.com/dicerobot/dicerobot3-swoole.tgz > /dev/null 2>&1
+printf "yes\nyes\nyes\nno\nyes\nyes\n" | pecl upgrade https://dl.drsanwujiang.com/dicerobot/dicerobot3-swoole.tgz > /dev/null 2>&1
 echo "extension=swoole.so" > /etc/php/7.4/mods-available/swoole.ini
 ln -s /etc/php/7.4/mods-available/swoole.ini /etc/php/7.4/cli/conf.d/20-swoole.ini
 

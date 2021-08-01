@@ -76,7 +76,7 @@ printf "这一步可能需要 1~2 分钟时间，请耐心等待……\n"
 dnf -y -q install curl-devel php-curl
 rm -f /etc/php.d/20-swoole.ini
 pecl uninstall swoole > /dev/null 2>&1
-printf "yes\nyes\nyes\nno\nyes\nyes\n" | pecl install https://dl.drsanwujiang.com/dicerobot/dicerobot3-swoole.tgz > /dev/null 2>&1
+printf "yes\nyes\nyes\nno\nyes\nyes\n" | pecl upgrade https://dl.drsanwujiang.com/dicerobot/dicerobot3-swoole.tgz > /dev/null 2>&1
 echo "extension=swoole.so" > /etc/php.d/20-swoole.ini
 
 if ! (php --ri swoole > /dev/null 2>&1); then
