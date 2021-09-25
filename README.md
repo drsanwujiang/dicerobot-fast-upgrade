@@ -1,6 +1,6 @@
 # 快速升级 DiceRobot
 
-快速升级 DiceRobot：从 2.x 到 3.0.2
+快速升级 DiceRobot：从 2.x 到 3.1.0
 
 
 ## 用法

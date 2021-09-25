@@ -140,6 +140,14 @@ composer --no-interaction --quiet update --working-dir dicerobot --no-dev
 
 printf "\nDone\n\n"
 
+# Update services
+printf "\033[32m5. 更新服务\033[0m\n"
+
+sed -i '/ExecReload/a\RestartSec=1s\nRestartForceExitStatus=99' /etc/systemd/system/dicerobot.service
+systemctl daemon-reload
+
+printf "\nDone\n\n"
+
 # Normal termination
 printf "======================================================================================================\n\n"
 printf "DiceRobot 及其运行环境已经升级完毕，接下来请正常运行 DiceRobot 及 Mirai 即可\n"
